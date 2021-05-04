@@ -1,0 +1,1 @@
+function [Tcirc, CritTcirc, ProbOfOurTcirc] = ComputeTcirc(CosVals, SinVals)M = length(CosVals);realpart = sum(CosVals)/M;imagpart = sum(SinVals)/M;Zest = realpart + i*imagpart;denom = 0;for c = 1:M	denom = denom + abs((CosVals(c)+i*SinVals(c))-Zest)^2;end;Tcirc = (M-1)*(abs(Zest)^2)/denom;CritTcirc = finv(.95,2,2*M-2);ProbOfOurTcirc = 1-fcdf(Tcirc, 2, 2*M-2);
