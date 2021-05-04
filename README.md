@@ -14,9 +14,9 @@ $ python3 --version
 ```
 
 ### Verify data
-#### 1. Verify the data directory in the same folder as traditional and notebooks within the PythonCodeForVisualizations folder
+#### 1. Verify the data directory is in the same folder as ```traditional``` and ```notebooks``` within the ```python``` directory
 
-#### 2. Find TrialStats and OK_Fixations csv files into the data directory
+#### 2. Find TrialStats and OK_Fixations csv files in the ```data``` directory
 The ```clean_data.ipynb``` notebook looks for the files at:
 ```
 data/CwCeTrialStats_20200324.csv
@@ -45,9 +45,9 @@ $ source venv/bin/activate  (only if not already active from above)
 
 #### 2. Open an internet browser and go to localhost:8888
 
-#### 3. In Jupyter in the web browser, open "notebooks/clean_data.ipynb".
+#### 3. In Jupyter in the web browser, open ```notebooks/clean_data.ipynb```.
 
-#### 4. Click the double-forward arrow button to run the whole notebook (rerunning if necessary). This creates a file called "clean_data.csv" in the "data" directory. You may need to click the 'Not Trusted button' to get it to trust the file.
+#### 4. Click the double-forward arrow button to run the whole notebook (rerunning if necessary). This creates a file called ```clean_data.csv``` in the ```data``` directory. You may need to click the 'Not Trusted' button to get it to trust the file.
 
 
 ### Create visualizations
@@ -55,11 +55,11 @@ $ source venv/bin/activate  (only if not already active from above)
 ```
 (venv) $ ./traditional/create_visualizations.py
 ```
-Everything will be created in the "visualizations" directory. The code to create the visualizations makes the data in the csv files self-documenting.
+Everything will be created in the ```visualizations``` directory. The code to create the visualizations makes the data in the csv files self-documenting.
 
 
 ## TECA model
-The TECA model implementation is the "correspondence_matching" directory, but it should be verified before using.
+The TECA model implementation is the ```correspondence_matching``` directory, but it should be verified before using.
 
 #### 1. Cluster the fixations on each image
 ```
@@ -67,6 +67,7 @@ $ ./correspondence_matching/cluster_fixations.py --deciding_only --bandwidth 66
 ```
 
 ```--deciding_only``` is a flag to only use deciding (AKA detailing) fixations
+
 ```--bandwidth``` is the bandwidth for the Mean Shift clustering
 
 #### 2. Create transition matrices
@@ -75,6 +76,7 @@ $ ./correspondence_matching/temp_seq.py --deciding_only --bandwidth 66 --weight_
 ```
 
 ```--deciding_only``` and ```--bandwidth``` args should match from the clustering
+
 ```--weight_clusters``` should be added to increment the transition by 1 every time (as opposed to just setting it to 1 if it's looked at at all)
 
 #### 3. Match the clusters
@@ -83,14 +85,16 @@ $ ./correspondence_matching/match_clusters.py --deciding_only --bandwidth 66 --w
 ```
 
 ```--deciding_only```, ```--bandwidth```, and ```--weight_clusters``` should be used the same as previous steps.
-```--algo```is either "greedy" or "hungarian"
+
+```--algo``` is either "greedy" or "hungarian"
+
 ```--threshold``` is threshold to cut out "weak" links
 
 
 
-##  Two separate team members implemented the TECA model for redundancy. A separate implementation is in Matlab. Files for the TECA model in Matlab are found in MatlabCodeForTecaModel
+##  Two separate team members implemented the TECA model for redundancy. A separate implementation is in Matlab.
 
-The individual trial data is a variant of CwCeTrialStats_20200324.csv and AllFixationsByImageAndExaminer.mat is a processed version of CwCe_OK_Fixations_20180703.csv restricted to just the comparison phase eye gaze data.
+The individual trial data is a variant of ```CwCeTrialStats_20200324.csv``` and ```AllFixationsByImageAndExaminer.mat``` is a processed version of ```CwCe_OK_Fixations_20180703.csv``` restricted to just the comparison phase eye gaze data.
 
 In matlab, run
 ```
