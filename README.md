@@ -1,9 +1,12 @@
-## Forensics Eye-Tracking
+# Characterizing missed identifications and errors in latent fingerprint comparisons using eye-tracking data
+
+## Overview
 
 This readme contains two sections. The first uses python to recreate many of the figures in the paper, and also self-documents the columns in the data tables in the data folder.
 
 The second uses matlab to reproduce the TECA model correspondence estimates.
 
+## Python
 
 ### Install python3
 https://www.python.org/downloads/
@@ -58,7 +61,7 @@ $ source venv/bin/activate  (only if not already active from above)
 Everything will be created in the ```visualizations``` directory. The code to create the visualizations makes the data in the csv files self-documenting.
 
 
-## TECA model
+### TECA model
 The TECA model implementation is the ```correspondence_matching``` directory, but it should be verified before using.
 
 #### 1. Cluster the fixations on each image
@@ -92,7 +95,8 @@ $ ./correspondence_matching/match_clusters.py --deciding_only --bandwidth 66 --w
 
 
 
-##  Two separate team members implemented the TECA model for redundancy. A separate implementation is in Matlab.
+##  MATLAB
+Two separate team members implemented the TECA model for redundancy. A separate implementation is in Matlab.
 
 The individual trial data is a variant of ```CwCeTrialStats_20200324.csv``` and ```AllFixationsByImageAndExaminer.mat``` is a processed version of ```CwCe_OK_Fixations_20180703.csv``` restricted to just the comparison phase eye gaze data.
 
